@@ -1023,8 +1023,123 @@
 
 <!-- ROAD TRIP -->
 <section id="roadtrip">
-  <div class="section-inner accordion">
-    
+  <div class="section-inner">
+
+    <!-- Road Trip Map -->
+    <div style="margin-bottom:1.5rem;">
+      <div style="width:100%;aspect-ratio:16/9;position:relative;">
+        <svg style="width:100%;height:100%;display:block;" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+              <polygon points="0 0, 7 2.5, 0 5" fill="#e8b923" opacity="0.85"/>
+            </marker>
+          </defs>
+          <rect width="800" height="450" fill="#0a1e3a" rx="10"/>
+          <line x1="0" y1="90" x2="800" y2="90" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="0" y1="180" x2="800" y2="180" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="0" y1="270" x2="800" y2="270" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="0" y1="360" x2="800" y2="360" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="160" y1="0" x2="160" y2="450" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="320" y1="0" x2="320" y2="450" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="480" y1="0" x2="480" y2="450" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <line x1="640" y1="0" x2="640" y2="450" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <text x="145" y="170" fill="rgba(255,255,255,0.055)" font-family="Inter,sans-serif" font-size="12" font-weight="700" letter-spacing="0.14em" text-anchor="middle">PENNSYLVANIA</text>
+          <text x="130" y="310" fill="rgba(255,255,255,0.055)" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em" text-anchor="middle">WEST VIRGINIA</text>
+          <text x="400" y="360" fill="rgba(255,255,255,0.055)" font-family="Inter,sans-serif" font-size="12" font-weight="700" letter-spacing="0.12em" text-anchor="middle">VIRGINIA</text>
+          <text x="370" y="130" fill="rgba(255,255,255,0.055)" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="0.1em" text-anchor="middle">MARYLAND</text>
+          <text x="620" y="425" fill="rgba(255,255,255,0.055)" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="0.1em" text-anchor="middle">NORTH CAROLINA</text>
+          <rect x="730" y="200" width="70" height="250" fill="rgba(20,60,160,0.1)"/>
+          <path d="M 730 200 Q 740 280 735 350 Q 732 400 740 450" stroke="rgba(100,170,255,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="5,4"/>
+          <text x="775" y="340" fill="rgba(80,140,255,0.18)" font-family="Inter,sans-serif" font-size="8" font-weight="600" letter-spacing="0.1em" text-anchor="middle" transform="rotate(90,775,340)">ATLANTIC OCEAN</text>
+          <path d="M 224 87 C 230 160 240 220 280 260 C 320 300 380 290 420 285" stroke="rgba(255,255,255,0.05)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M 420 285 C 450 278 480 272 482 270" stroke="rgba(255,255,255,0.05)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M 224 87 C 260 130 340 190 400 230 C 435 252 462 264 482 270" stroke="#e8b923" stroke-width="3.5" fill="none" stroke-dasharray="11,5" opacity="0.8"/>
+          <path d="M 482 270 C 530 295 588 325 636 349" stroke="#e8b923" stroke-width="3.5" fill="none" stroke-dasharray="11,5" opacity="0.8"/>
+          <path d="M 636 349 C 650 365 668 382 681 396" stroke="#e8b923" stroke-width="3.5" fill="none" stroke-dasharray="11,5" opacity="0.8" marker-end="url(#arr)"/>
+          <path d="M 224 87 C 260 130 340 190 400 230 C 435 252 462 264 482 270 C 530 295 588 325 636 349 C 650 365 668 382 681 396" stroke="#e8b923" stroke-width="1.5" fill="none" opacity="0.18" filter="url(#glow)"/>
+          <rect x="290" y="148" width="74" height="16" rx="4" fill="rgba(10,30,58,0.9)"/>
+          <text x="327" y="159" fill="rgba(232,185,35,0.8)" font-family="Inter,sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">~350 mi \xb7 Day 1</text>
+          <rect x="537" y="294" width="74" height="16" rx="4" fill="rgba(10,30,58,0.9)"/>
+          <text x="574" y="305" fill="rgba(232,185,35,0.8)" font-family="Inter,sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">~120 mi \xb7 Day 2</text>
+          <rect x="640" y="360" width="58" height="16" rx="4" fill="rgba(10,30,58,0.9)"/>
+          <text x="669" y="371" fill="rgba(232,185,35,0.8)" font-family="Inter,sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">~50 mi</text>
+          <rect x="248" y="93" width="40" height="16" rx="4" fill="#e8b923"/>
+          <text x="268" y="104" fill="#0d2545" font-family="Oswald,sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="0.04em">DAY 1</text>
+          <rect x="504" y="255" width="40" height="16" rx="4" fill="rgba(232,185,35,0.18)" stroke="#e8b923" stroke-width="1"/>
+          <text x="524" y="266" fill="#e8b923" font-family="Oswald,sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="0.04em">DAY 2</text>
+          <circle cx="224" cy="87" r="15" fill="#e8b923" opacity="0.15" filter="url(#glow)"/>
+          <circle cx="224" cy="87" r="10" fill="#0a1e3a" stroke="#e8b923" stroke-width="2.5"/>
+          <circle cx="224" cy="87" r="5" fill="#e8b923"/>
+          <rect x="22" y="30" width="148" height="38" rx="7" fill="rgba(10,30,58,0.97)" stroke="#e8b923" stroke-width="1.5"/>
+          <text x="96" y="46" fill="#ffffff" font-family="Oswald,sans-serif" font-size="12" font-weight="700" text-anchor="middle">PITTSBURGH, PA</text>
+          <text x="96" y="58" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="8.5" text-anchor="middle">Thu Jul 24 \xb7 Depart Evening</text>
+          <line x1="170" y1="48" x2="216" y2="82" stroke="#e8b923" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+          <circle cx="482" cy="270" r="15" fill="#1a7a4a" opacity="0.15" filter="url(#glow)"/>
+          <circle cx="482" cy="270" r="10" fill="#0a1e3a" stroke="#1a7a4a" stroke-width="2.5"/>
+          <circle cx="482" cy="270" r="5" fill="#1a7a4a"/>
+          <rect x="370" y="212" width="155" height="42" rx="7" fill="rgba(10,30,58,0.97)" stroke="#1a7a4a" stroke-width="1.5"/>
+          <text x="447" y="228" fill="#ffffff" font-family="Oswald,sans-serif" font-size="12" font-weight="700" text-anchor="middle">RICHMOND, VA</text>
+          <text x="447" y="240" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Overnight \xb7 Holiday Inn</text>
+          <text x="447" y="251" fill="rgba(255,255,255,0.35)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Dinner at Mama J\u2019s \U0001f37d</text>
+          <line x1="447" y1="254" x2="476" y2="268" stroke="#1a7a4a" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+          <circle cx="636" cy="349" r="15" fill="#b53030" opacity="0.15" filter="url(#glow)"/>
+          <circle cx="636" cy="349" r="10" fill="#0a1e3a" stroke="#b53030" stroke-width="2.5"/>
+          <circle cx="636" cy="349" r="5" fill="#b53030"/>
+          <rect x="474" y="300" width="154" height="38" rx="7" fill="rgba(10,30,58,0.97)" stroke="#b53030" stroke-width="1.5"/>
+          <text x="551" y="316" fill="#ffffff" font-family="Oswald,sans-serif" font-size="11" font-weight="700" text-anchor="middle">DIGGER\u2019S DUNGEON</text>
+          <text x="551" y="328" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Poplar Branch, NC \U0001f6fb</text>
+          <line x1="628" y1="338" x2="632" y2="343" stroke="#b53030" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+          <circle cx="681" cy="396" r="17" fill="#e8b923" opacity="0.12" filter="url(#glow)"/>
+          <circle cx="681" cy="396" r="12" fill="#0a1e3a" stroke="#e8b923" stroke-width="2.5"/>
+          <text x="681" y="400" font-size="11" text-anchor="middle" font-family="Inter,sans-serif">\U0001f412</text>
+          <rect x="506" y="373" width="148" height="40" rx="7" fill="rgba(10,30,58,0.97)" stroke="#e8b923" stroke-width="2"/>
+          <text x="580" y="389" fill="#e8b923" font-family="Oswald,sans-serif" font-size="12" font-weight="700" text-anchor="middle">SEA MONKEY \U0001f30a</text>
+          <text x="580" y="401" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Salvo, NC \xb7 Fri Jul 25 \xb7 Check-in</text>
+          <line x1="654" y1="391" x2="666" y2="394" stroke="#e8b923" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+          <rect x="12" y="408" width="150" height="32" rx="8" fill="rgba(232,185,35,0.1)" stroke="rgba(232,185,35,0.35)" stroke-width="1"/>
+          <text x="87" y="421" fill="#e8b923" font-family="Oswald,sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="0.06em">TOTAL ONE-WAY</text>
+          <text x="87" y="434" fill="#ffffff" font-family="Inter,sans-serif" font-size="10" font-weight="600" text-anchor="middle">~590 miles \xb7 2 days</text>
+        </svg>
+      </div>
+
+      <!-- Legend -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-top:1rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(232,185,35,0.18);border-radius:8px;padding:0.6rem 0.7rem;">
+          <div style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;flex-shrink:0;margin-top:1px;background:#e8b923;color:#0d2545;">1</div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;color:#fff;line-height:1.2;">Pittsburgh, PA</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.4;">Thu Jul 24 \xb7 Evening departure<br/>~350 mi to Richmond</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(232,185,35,0.18);border-radius:8px;padding:0.6rem 0.7rem;">
+          <div style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;flex-shrink:0;margin-top:1px;background:#1a7a4a;color:#fff;">2</div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;color:#fff;line-height:1.2;">Richmond, VA</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.4;">Overnight \xb7 Holiday Inn<br/>Dinner at Mama J\u2019s</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(232,185,35,0.18);border-radius:8px;padding:0.6rem 0.7rem;">
+          <div style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;flex-shrink:0;margin-top:1px;background:#b53030;color:#fff;">3</div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;color:#fff;line-height:1.2;">Digger\u2019s Dungeon</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.4;">Fri Jul 25 \xb7 Poplar Branch, NC<br/>Monster trucks \U0001f6fb</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(232,185,35,0.18);border-radius:8px;padding:0.6rem 0.7rem;">
+          <div style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;flex-shrink:0;margin-top:1px;background:#e8b923;color:#0d2545;">\U0001f412</div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;color:#fff;line-height:1.2;">Salvo, NC \u2014 OBX</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.4;">Fri Jul 25 \xb7 Check-in<br/>Sea Monkey \U0001f30a</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
       <button class="accordion-toggle">
         <div style="flex:1">
           <p class="section-eyebrow">Getting There</p>
@@ -1119,6 +1234,7 @@
     </div>
       </div>
   </div>
+    </div>
 </section>
 
 <!-- GAS -->
@@ -1733,7 +1849,7 @@
   setInterval(tick, 1000);
 </script>
 
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="back-to-top" style="
+<button onclick="window.scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('.accordion-body.open').forEach(function(b){b.classList.remove('open')});document.querySelectorAll('.accordion-toggle.open').forEach(function(b){b.classList.remove('open')});document.querySelectorAll('.day-body.open').forEach(function(b){b.classList.remove('open')});document.querySelectorAll('.day-header.open').forEach(function(b){b.classList.remove('open')})" id="back-to-top" style="
   position:fixed;
   bottom:1.5rem;
   right:1.5rem;
