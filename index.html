@@ -1124,18 +1124,52 @@
 <!-- GAS -->
 <section id="gas" style="background:var(--cream);">
   <div class="section-inner accordion">
-
+    
       <button class="accordion-toggle">
         <div style="flex:1">
           <p class="section-eyebrow">Fuel Up</p>
-    <h2 class="section-title">Gas Calculator</h2><p style="color:var(--text-mid);margin-bottom:2rem;max-width:580px;line-height:1.65;font-size:0.95rem;">Based on the full route: Pittsburgh → Richmond → Salvo, NC. Total one-way distance: <strong>~590 miles</strong>. Round trip: <strong>~1,180 miles</strong>. Based on real-world fuel economy of 16 mpg.</p>
+    <h2 class="section-title">Gas Calculator</h2><p style="color:var(--text-mid);margin-bottom:2rem;max-width:580px;line-height:1.65;font-size:0.95rem;">Based on the full route: Pittsburgh → Richmond → Salvo, NC. Total one-way distance: <strong>~590 miles</strong>. Prices based on current local rates: Pittsburgh diesel ~$5.66/gal, regular ~$4.47/gal · Richmond ~$4.20 diesel / $3.80 regular · Coastal NC ~$4.50+ diesel / $4.00+ regular. Includes full tank fill-up at home before departure.</p>
         </div>
         <span class="chevron">▼</span>
       </button>
       <div class="accordion-body">
-        <!-- Vehicle Card -->
-    <div style="max-width:400px;margin:0 auto 2.5rem;">
+        <!-- Vehicle Cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:2.5rem;">
 
+      <!-- RAM -->
+      <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
+        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
+          <span style="font-size:1.4rem;">🚛</span>
+          <div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2012 Dodge Ram 2500</div>
+            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">Diesel · Towing Trailer</div>
+          </div>
+        </div>
+        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">15 mpg</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~32 gal</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~480 mi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~36 gal*</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$274</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASCENT -->
       <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
         <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
           <span style="font-size:1.4rem;">🚙</span>
@@ -1146,58 +1180,351 @@
         </div>
         <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Real-World MPG</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
             <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">16 mpg</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">One-Way Distance</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~590 mi</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">19.4 gal</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Round Trip Distance</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~1,180 mi</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~309 mi</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">One-Way Gallons</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
             <span style="font-weight:700;color:#fff;font-size:0.95rem;">~37 gal</span>
           </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$152</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAVERSE -->
+      <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
+        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
+          <span style="font-size:1.4rem;">🚙</span>
+          <div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2024 Chevy Traverse RS</div>
+            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">AWD SUV</div>
+          </div>
+        </div>
+        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Round Trip Gallons</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~74 gal</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">26 mpg</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">19.4 gal</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~504 mi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~20.9 gal</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$92</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOURNEY -->
+      <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
+        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
+          <span style="font-size:1.4rem;">🚗</span>
+          <div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2012 Dodge Journey</div>
+            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">FWD SUV</div>
+          </div>
+        </div>
+        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">22 mpg</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">15.8 gal</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~348 mi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~24.7 gal</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$131</span>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- Leg Breakdown -->
-    <p class="section-eyebrow" style="margin-bottom:0.4rem;">Route Breakdown</p>
+    <!-- Gas Stops by Leg -->
+    <p class="section-eyebrow" style="margin-bottom:0.4rem;">Gas Stops Per Leg</p>
     <div style="display:flex;flex-direction:column;gap:0.75rem;">
 
+      <!-- Leg 1 -->
       <div style="background:white;border-radius:10px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1.25rem;">
-        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;">Leg 1 · Pittsburgh → Richmond · ~350 mi</div>
-        <div style="display:flex;gap:1.5rem;align-items:center;margin-top:0.5rem;">
-          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 1.25rem;flex:1;">
-            <div style="font-size:1rem;margin-bottom:0.2rem;">⛽</div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--navy);line-height:1.1;">~22 gal</div>
-            <div style="font-size:0.75rem;color:var(--text-light);margin-top:0.2rem;">Top off in Richmond</div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;">Leg 1 · Pittsburgh → Richmond · 336 mi</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:0.5rem;">
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚛</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ram 2500</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--seafoam);line-height:1.1;">1</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stop</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Top-off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ascent</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--seafoam);line-height:1.1;">1</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stop</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Top-off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Traverse</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--seafoam);line-height:1.1;">1</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stop</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Top-off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚗</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Journey</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--seafoam);line-height:1.1;">1</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stop</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Top-off in Richmond</div>
           </div>
         </div>
       </div>
 
+      <!-- Leg 2 -->
       <div style="background:white;border-radius:10px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1.25rem;">
-        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;">Leg 2 · Richmond → Salvo, NC · ~240 mi</div>
-        <div style="display:flex;gap:1.5rem;align-items:center;margin-top:0.5rem;">
-          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 1.25rem;flex:1;">
-            <div style="font-size:1rem;margin-bottom:0.2rem;">⛽</div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--navy);line-height:1.1;">~15 gal</div>
-            <div style="font-size:0.75rem;color:var(--text-light);margin-top:0.2rem;">Arrive at OBX</div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;">Leg 2 · Richmond → Digger's Dungeon · 143 mi</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:0.5rem;">
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚛</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ram 2500</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Topped off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ascent</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Topped off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Traverse</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Topped off in Richmond</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚗</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Journey</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Topped off in Richmond</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leg 3 -->
+      <div style="background:white;border-radius:10px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1.25rem;">
+        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;">Leg 3 · Digger's Dungeon → Rodanthe · 64 mi</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:0.5rem;">
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚛</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ram 2500</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">480mi range — no stop needed</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Ascent</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Plenty of range left</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚙</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Traverse</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Plenty of range left</div>
+          </div>
+          <div style="text-align:center;background:var(--sand);border-radius:8px;padding:0.75rem 0.5rem;">
+            <div style="font-size:1rem;margin-bottom:0.2rem;">🚗</div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;color:var(--navy);">Journey</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:1.4rem;color:var(--ocean);line-height:1.1;">0</div>
+            <div style="font-size:0.7rem;color:var(--text-light);">stops</div>
+            <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem;">Plenty of range left</div>
           </div>
         </div>
       </div>
 
     </div>
 
+    <!-- Total cost banner -->
+    <div style="margin-top:1.5rem;background:var(--navy);border-radius:10px;border:3px solid var(--gold);padding:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.25rem;">Total Fleet Fuel Cost · 543 mi · Pittsburgh fill-up included</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Ram + Ascent + Traverse + Journey combined estimate</div>
+      </div>
+      <div style="font-family:'Alfa Slab One',serif;font-size:2.5rem;color:var(--gold);text-shadow:2px 2px 0 var(--gold-dark);">~$592</div>
+    </div>
+
+    <!-- STOP PLANNER -->
+    <div style="margin-top:2rem;">
+      <p class="section-eyebrow" style="margin-bottom:0.25rem;">Stop Planner</p>
+      <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:1.5rem;max-width:560px;line-height:1.6;">The Ram 2500 sets the pace — when it stops, everyone stops. All vehicles fill up at home in Pittsburgh (15210) before departure. Diesel runs ~$5.66 in Pittsburgh right now, so Richmond (~$4.20 diesel) is a meaningful savings on the top-off.</p>
+
+      <!-- LEG 1 PLANNER -->
+      <div style="background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);overflow:hidden;margin-bottom:1rem;">
+        <div style="background:var(--navy);padding:0.85rem 1.25rem;">
+          <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Leg 1 · Pittsburgh → Richmond · 336 mi</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">🏠 All vehicles fill up in Pittsburgh (15210) before departure</div>
+        </div>
+        <div style="padding:1.25rem;">
+
+          <!-- Route bar -->
+          <div style="position:relative;height:10px;background:#e8e8e8;border-radius:100px;margin:1rem 0 2.5rem;">
+            <!-- Price zones -->
+            <div style="position:absolute;left:0;width:55%;height:100%;background:linear-gradient(to right,#4caf50,#8bc34a);border-radius:100px 0 0 100px;" title="Cheaper — rural PA/WV"></div>
+            <div style="position:absolute;left:55%;width:30%;height:100%;background:#ffc107;" title="Mid-range — MD/northern VA"></div>
+            <div style="position:absolute;left:85%;width:15%;height:100%;background:linear-gradient(to right,#ffc107,#ff9800);border-radius:0 100px 100px 0;" title="Slightly higher — Richmond area"></div>
+            <!-- Start dot -->
+            <div style="position:absolute;left:0;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+            <!-- Stop 1 ~mi 320 (Richmond top-off, ~95%) -->
+            <div style="position:absolute;left:93%;top:50%;transform:translate(-50%,-50%);">
+              <div style="width:16px;height:16px;background:var(--coral);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--coral);cursor:pointer;"></div>
+              <div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);white-space:nowrap;text-align:center;">
+                <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;color:var(--coral);">STOP 1</div>
+                <div style="font-size:0.6rem;color:var(--text-light);">Richmond</div>
+                <div style="font-size:0.6rem;color:#ff9800;font-weight:700;">🟡 Mid-range</div>
+              </div>
+            </div>
+            <!-- End dot -->
+            <div style="position:absolute;right:0;top:50%;transform:translate(50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+          </div>
+
+          <!-- Stop detail cards -->
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;">
+
+            <div style="display:flex;align-items:flex-start;gap:1rem;background:var(--sand);border-radius:8px;padding:0.85rem 1rem;border-left:4px solid var(--coral);">
+              <div style="flex-shrink:0;font-family:'Alfa Slab One',serif;font-size:1.1rem;color:var(--coral);line-height:1;">1</div>
+              <div style="flex:1;">
+                <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:var(--navy);">Richmond, VA · Top-Off Stop (Diesel saves ~$1.46/gal vs Pittsburgh)</div>
+                <div style="font-size:0.78rem;color:var(--text-mid);margin-top:0.15rem;line-height:1.5;">Everyone topped off in Pittsburgh before leaving. Richmond fill-up is mainly for the Ram (~22 gal diesel @ ~$4.20) and the Journey (full tank @ ~$3.80) — significantly cheaper than Pittsburgh prices. Ascent and Traverse may only need a small top-off.</div>
+                <a href="https://www.gasbuddy.com/gasprices/Virginia/Mechanicsville" target="_blank" style="display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;background:var(--navy);color:var(--gold);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:4px;text-decoration:none;">⛽ Check Live Prices ↗</a>
+              </div>
+              <div style="flex-shrink:0;text-align:center;">
+                <div style="font-size:0.65rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#ff9800;font-weight:700;">Price Zone</div>
+                <div style="font-size:1.2rem;">🟡</div>
+                <div style="font-size:0.65rem;color:var(--text-light);">Mid-range</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEG 2 PLANNER -->
+      <div style="background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);overflow:hidden;margin-bottom:1rem;">
+        <div style="background:var(--navy);padding:0.85rem 1.25rem;">
+          <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Leg 2 · Richmond → Digger's Dungeon · 143 mi</div>
+        </div>
+        <div style="padding:1.25rem;">
+
+          <div style="position:relative;height:10px;background:#e8e8e8;border-radius:100px;margin:1rem 0 2.5rem;">
+            <div style="position:absolute;left:0;width:70%;height:100%;background:#ffc107;border-radius:100px 0 0 100px;"></div>
+            <div style="position:absolute;left:70%;width:30%;height:100%;background:linear-gradient(to right,#ffc107,#ff5722);border-radius:0 100px 100px 0;"></div>
+            <div style="position:absolute;left:0;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+            <!-- No required stop — Ram topped off -->
+            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);">
+              <div style="width:16px;height:16px;background:#4caf50;border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px #4caf50;"></div>
+              <div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);white-space:nowrap;text-align:center;">
+                <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;color:#4caf50;">OPTIONAL</div>
+                <div style="font-size:0.6rem;color:var(--text-light);">~mi 70</div>
+                <div style="font-size:0.6rem;color:#ffc107;font-weight:700;">🟡 Mid-range</div>
+              </div>
+            </div>
+            <div style="position:absolute;right:0;top:50%;transform:translate(50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;background:var(--sand);border-radius:8px;padding:0.85rem 1rem;border-left:4px solid #4caf50;">
+              <div style="flex-shrink:0;font-size:1.2rem;line-height:1;">✅</div>
+              <div style="flex:1;">
+                <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:var(--navy);">No Required Stop · Ram has 480mi range from Richmond fill-up</div>
+                <div style="font-size:0.78rem;color:var(--text-mid);margin-top:0.15rem;line-height:1.5;">143 miles is easily within the Ram's 480mi range. Optional stop near Chesapeake if anyone needs a break — still worth fueling before hitting coastal NC where prices jump.</div>
+                <a href="https://www.gasbuddy.com/gasprices/Virginia/Chesapeake" target="_blank" style="display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;background:var(--navy);color:var(--gold);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:4px;text-decoration:none;">⛽ Check Chesapeake Prices ↗</a>
+              </div>
+              <div style="flex-shrink:0;text-align:center;">
+                <div style="font-size:0.65rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#4caf50;font-weight:700;">Status</div>
+                <div style="font-size:1.2rem;">✅</div>
+                <div style="font-size:0.65rem;color:var(--text-light);">Good to go</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEG 3 PLANNER -->
+      <div style="background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);overflow:hidden;margin-bottom:1rem;">
+        <div style="background:var(--navy);padding:0.85rem 1.25rem;">
+          <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Leg 3 · Digger's Dungeon → Rodanthe · 64 mi</div>
+        </div>
+        <div style="padding:1.25rem;">
+
+          <div style="position:relative;height:10px;background:#e8e8e8;border-radius:100px;margin:1rem 0 2.5rem;">
+            <div style="position:absolute;left:0;width:100%;height:100%;background:linear-gradient(to right,#ff9800,#ff5722);border-radius:100px;"></div>
+            <div style="position:absolute;left:0;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+            <div style="position:absolute;right:0;top:50%;transform:translate(50%,-50%);width:14px;height:14px;background:var(--navy);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--navy);"></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;background:#fff3e0;border-radius:8px;padding:0.85rem 1rem;border-left:4px solid #ff9800;">
+              <div style="flex-shrink:0;font-size:1.2rem;line-height:1;">⚠️</div>
+              <div style="flex:1;">
+                <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:var(--navy);">Fill Up at Digger's Dungeon Before This Leg</div>
+                <div style="font-size:0.78rem;color:var(--text-mid);margin-top:0.15rem;line-height:1.5;">Gas on NC-12 and near the Outer Banks is noticeably more expensive — sometimes $0.30–$0.50/gal above average. Poplar Branch / Grandy area near Digger's is your last cheap stop before prices climb. Only 64 miles to go so everyone arrives easily.</div>
+                <a href="https://www.gasbuddy.com/gasprices/North_Carolina/Grandy" target="_blank" style="display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;background:var(--navy);color:var(--gold);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:4px;text-decoration:none;">⛽ Check Grandy/OBX Prices ↗</a>
+              </div>
+              <div style="flex-shrink:0;text-align:center;">
+                <div style="font-size:0.65rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#ff5722;font-weight:700;">Price Zone</div>
+                <div style="font-size:1.2rem;">🔴</div>
+                <div style="font-size:0.65rem;color:var(--text-light);">Most Expensive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;padding:0.85rem 1rem;background:var(--sand);border-radius:8px;">
+        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-mid);align-self:center;">Price Key:</div>
+        <div style="display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:var(--text-mid);">💚 <span>Cheapest (rural PA/WV)</span></div>
+        <div style="display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:var(--text-mid);">🟡 <span>Mid-range (VA/MD)</span></div>
+        <div style="display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:var(--text-mid);">🔴 <span>Most expensive (OBX coast)</span></div>
+      </div>
+
+    </div>
       </div>
   </div>
 </section>
