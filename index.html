@@ -844,8 +844,8 @@
 
   
     @media(max-width:640px){
-      #weather-cards { grid-template-columns: repeat(5, 1fr) !important; gap: 0.4rem !important; }
-      #weather-cards > div { padding: 0.6rem 0.3rem !important; }
+      #weather-cards, #uv-chart { grid-template-columns: repeat(5, 1fr) !important; gap: 0.4rem !important; }
+      #weather-cards > div, #uv-chart > div { padding: 0.6rem 0.3rem !important; }
     }
   </style>
 </head>
@@ -2001,7 +2001,7 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
           +'<div style="background:#e0e0e0;border-radius:6px;height:12px;overflow:hidden;margin-top:0.25rem;">'
           +'<div style="height:100%;width:'+uvPct+'%;background:linear-gradient(to right,#4caf50,#f5a623,#ff9800,#f44336);border-radius:6px;transition:width 0.5s;"></div>'
           +'</div>'
-          +'<div style="display:flex;justify-content:space-between;font-size:0.55rem;color:var(--text-light);margin-top:0.2rem;"><span>Low</span><span>Extreme</span></div>';
+          +'<div style="display:flex;justify-content:space-between;font-size:0.5rem;color:var(--text-light);margin-top:0.2rem;padding:0 0.1rem;"><span>Low</span><span>Extreme</span></div>';
         uvChart.appendChild(uvCard);
       }
     })
