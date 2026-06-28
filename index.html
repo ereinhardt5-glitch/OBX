@@ -1558,7 +1558,7 @@
   <div class="section-inner">
     <p class="section-eyebrow">OBX Weather</p>
     <h2 class="section-title">⛅ 5-Day Forecast</h2>
-    <p style="color:var(--text-mid);margin-bottom:1rem;font-size:0.85rem;">Rodanthe, NC · Updates daily</p>
+    <p style="color:var(--text-mid);margin-bottom:1rem;font-size:0.85rem;">Rodanthe, NC · Updates daily &nbsp;·&nbsp; Currently: <span id="current-temp" style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);">--</span></p>
     <div id="weather-cards" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;">
       <div style="text-align:center;padding:1.5rem;color:var(--text-mid);font-size:0.85rem;grid-column:1/-1;">Loading forecast...</div>
     </div>
@@ -1939,9 +1939,12 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
   };
   var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
-  fetch('https://api.open-meteo.com/v1/forecast?latitude=35.59&longitude=-75.47&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&forecast_days=5&timezone=America%2FNew_York')
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=35.59&longitude=-75.47&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&current_weather=true&temperature_unit=fahrenheit&forecast_days=5&timezone=America%2FNew_York')
     .then(function(r){ return r.json(); })
     .then(function(data){
+      var currentTemp = Math.round(data.current_weather.temperature);
+      var currentEl = document.getElementById('current-temp');
+      if(currentEl) currentEl.textContent = currentTemp + '\xb0F';
       var container = document.getElementById('weather-cards');
       container.innerHTML = '';
       for(var i=0;i<5;i++){
@@ -1961,7 +1964,8 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
         card.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;">'+dayName+' '+month+'/'+dayNum+'</div>'
           +'<div style="font-size:2.2rem;line-height:1.2;">'+icon+'</div>'
           +'<div style="font-size:0.75rem;color:var(--text-mid);margin:0.25rem 0;">'+label+'</div>'
-          +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.3rem;color:var(--navy);">Hi '+hi+'\xb0</div>'
+          +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.3rem;color:var(--navy);">'+(i===0?currentTemp:hi)+'\xb0</div>'
+          +'<div style="font-size:0.8rem;color:var(--text-light);margin-top:0.2rem;">Hi '+hi+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);">Lo '+lo+'\xb0</div>'
           +(rain>0?'<div style="font-size:0.7rem;color:var(--navy-light);margin-top:0.25rem;">💧 '+rain+'%</div>':'');
         container.appendChild(card);
