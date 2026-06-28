@@ -1744,15 +1744,19 @@
     <p class="section-eyebrow">Navigate</p>
     <h2 class="section-title">📍 Explore Locations</h2>
     <p style="color:rgba(255,255,255,0.6);margin-bottom:1.25rem;font-size:0.9rem;">Tap a location to see it on the map.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;" id="map-buttons">
-      <button class="map-btn active" data-lat="35.5363" data-lng="-75.4688" data-zoom="16" data-label="Beach House">🏠 Beach House</button>
-      <button class="map-btn" data-lat="37.6096" data-lng="-77.3574" data-zoom="16" data-label="IHG Hotel">🏨 IHG Hotel</button>
-      <button class="map-btn" data-lat="37.6035" data-lng="-77.3718" data-zoom="16" data-label="Olde Towne Smokehouse">🍖 Smokehouse</button>
-      <button class="map-btn" data-lat="36.2848" data-lng="-75.9198" data-zoom="15" data-label="Digger's Dungeon">🏎️ Digger's Dungeon</button>
-      <button class="map-btn" data-lat="35.1077" data-lng="-75.9722" data-zoom="15" data-label="Ocracoke">⛴️ Ocracoke</button>
-      <button class="map-btn" data-lat="35.9082" data-lng="-75.6714" data-zoom="16" data-label="NC Aquarium / Manteo">🐟 Manteo</button>
-      <button class="map-btn" data-lat="35.3473" data-lng="-75.5013" data-zoom="16" data-label="Avon Pier">🍦 Avon Pier</button>
-      <button class="map-btn" data-lat="35.5851" data-lng="-75.4615" data-zoom="16" data-label="Rodanthe Pier">🎣 Rodanthe Pier</button>
+    <div id="map-buttons" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;align-items:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+        <button class="map-btn active" data-lat="35.5363" data-lng="-75.4688" data-zoom="16" data-label="Beach House">🏠 Beach House</button>
+        <button class="map-btn" data-lat="37.6096" data-lng="-77.3574" data-zoom="16" data-label="IHG Hotel">🏨 IHG Hotel</button>
+        <button class="map-btn" data-lat="37.6035" data-lng="-77.3718" data-zoom="16" data-label="Olde Towne Smokehouse">🍖 Smokehouse</button>
+        <button class="map-btn" data-lat="36.2848" data-lng="-75.9198" data-zoom="15" data-label="Digger's Dungeon">🏎️ Digger's Dungeon</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+        <button class="map-btn" data-lat="35.1077" data-lng="-75.9722" data-zoom="15" data-label="Ocracoke">⛴️ Ocracoke</button>
+        <button class="map-btn" data-lat="35.9082" data-lng="-75.6714" data-zoom="16" data-label="NC Aquarium / Manteo">🐟 Manteo</button>
+        <button class="map-btn" data-lat="35.3473" data-lng="-75.5013" data-zoom="16" data-label="Avon Pier">🍦 Avon Pier</button>
+        <button class="map-btn" data-lat="35.5851" data-lng="-75.4615" data-zoom="16" data-label="Rodanthe Pier">🎣 Rodanthe Pier</button>
+      </div>
     </div>
     <div style="border-radius:12px;overflow:hidden;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);">
       <iframe id="explore-map" width="100%" height="400" frameborder="0" scrolling="no" style="display:block;"
