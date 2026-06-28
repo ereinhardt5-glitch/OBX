@@ -303,6 +303,9 @@
     .map-btn { background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:all 0.15s; }
     .map-btn:hover { background:#f5c842; }
     .map-btn.active { background:var(--navy);color:var(--gold);border-color:var(--gold); }
+    #webcam-grid > a { display:flex; }
+    #webcam-grid > a > div { display:flex;flex-direction:column;flex:1; }
+    #webcam-grid > a > div > div:last-child { flex:1; }
 
     /* ─── COUNTDOWN ─── */
     .countdown-bar {
@@ -1774,7 +1777,7 @@
     <p class="section-eyebrow">Live Views</p>
     <h2 class="section-title">📷 OBX Webcams</h2>
     <p style="color:var(--text-mid);margin-bottom:1.5rem;font-size:0.9rem;">Check the waves and weather before you go.</p>
-    <div id="webcam-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+    <div id="webcam-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;align-items:stretch;">
       <a href="https://www.rodanthepierllc.com/webcam" target="_blank" style="text-decoration:none;">
         <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;transition:transform 0.15s;">
           <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
