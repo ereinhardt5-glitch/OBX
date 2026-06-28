@@ -303,9 +303,9 @@
     .map-btn { background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:all 0.15s; }
     .map-btn:hover { background:#f5c842; }
     .map-btn.active { background:var(--navy);color:var(--gold);border-color:var(--gold); }
-    #webcam-grid > a { display:flex; }
-    #webcam-grid > a > div { display:flex;flex-direction:column;flex:1; }
-    #webcam-grid > a > div > div:last-child { flex:1; }
+    #webcam-grid > a { display:flex !important;height:100%; }
+    #webcam-grid > a > div { display:flex !important;flex-direction:column !important;height:100% !important; }
+    #webcam-grid > a > div > div:last-child { flex:1 !important; }
 
     /* ─── COUNTDOWN ─── */
     .countdown-bar {
