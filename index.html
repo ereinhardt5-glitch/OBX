@@ -793,6 +793,7 @@
       .leg-grid { grid-template-columns: 1fr !important; }
       .nav-links { display: none; }
       .route-cards { grid-template-columns: 1fr; }
+      #gas-vehicles { grid-template-columns: repeat(2, 1fr) !important; }
       .spirit-intro { flex-direction: column; gap: 0.75rem; }
       .hero-banner::before, .hero-banner::after { display: none; }
       .cd-colon { display: none; }
@@ -1135,157 +1136,154 @@
 <section id="gas" style="background:var(--cream);">
   <div class="section-inner accordion">
     
-      <button class="accordion-toggle">
-        <div style="flex:1">
-          <p class="section-eyebrow">Fuel Up</p>
-    <h2 class="section-title" style="margin-bottom:0.75rem;">Gas Calculator</h2>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-      <span style="background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:6px;">Ram 2500</span>
-      <span style="background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:6px;">Subaru Ascent</span>
-      <span style="background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:6px;">Chevy Traverse</span>
-      <span style="background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:6px;">Dodge Journey</span>
-    </div>
-        </div>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p style="color:var(--text-mid);margin-bottom:2rem;max-width:580px;line-height:1.65;font-size:0.95rem;">Based on the full route: Pittsburgh → Richmond → Salvo, NC. Total one-way distance: <strong>~590 miles</strong>. Prices based on current local rates: Pittsburgh diesel ~$5.66/gal, regular ~$4.47/gal · Richmond ~$4.20 diesel / $3.80 regular · Coastal NC ~$4.50+ diesel / $4.00+ regular. Includes full tank fill-up at home before departure.</p>
-        <!-- Vehicle Cards -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:2.5rem;">
+      <p class="section-eyebrow">Fuel Up</p>
+    <h2 class="section-title" style="margin-bottom:1.25rem;">Gas Calculator</h2>
+
+    <!-- Vehicle Cards - always visible -->
+    <div id="gas-vehicles" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;">
 
       <!-- RAM -->
       <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
-        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
-          <span style="font-size:1.4rem;">🚛</span>
+        <div style="background:var(--gold);padding:0.6rem 0.8rem;display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:1.1rem;">🚛</span>
           <div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2012 Dodge Ram 2500</div>
-            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">Diesel · Towing Trailer</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:0.75rem;color:var(--navy);line-height:1.1;">2012 Dodge Ram 2500</div>
+            <div style="font-size:0.55rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">Diesel · Towing Trailer</div>
           </div>
         </div>
-        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">15 mpg</span>
+        <div style="padding:0.8rem;display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.85rem;">15 mpg</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~32 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~32 gal</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~480 mi</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~480 mi</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~36 gal*</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~36 gal*</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$274</span>
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.95rem;">~$274</span>
           </div>
         </div>
       </div>
 
       <!-- ASCENT -->
       <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
-        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
-          <span style="font-size:1.4rem;">🚙</span>
+        <div style="background:var(--gold);padding:0.6rem 0.8rem;display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:1.1rem;">🚙</span>
           <div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2023 Subaru Ascent</div>
-            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">AWD SUV</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:0.75rem;color:var(--navy);line-height:1.1;">2023 Subaru Ascent</div>
+            <div style="font-size:0.55rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">AWD SUV</div>
           </div>
         </div>
-        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">16 mpg</span>
+        <div style="padding:0.8rem;display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.85rem;">16 mpg</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">19.4 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">19.4 gal</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~309 mi</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~309 mi</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~37 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~37 gal</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$152</span>
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.95rem;">~$152</span>
           </div>
         </div>
       </div>
 
       <!-- TRAVERSE -->
       <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
-        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
-          <span style="font-size:1.4rem;">🚙</span>
+        <div style="background:var(--gold);padding:0.6rem 0.8rem;display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:1.1rem;">🚙</span>
           <div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2024 Chevy Traverse</div>
-            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">AWD SUV</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:0.75rem;color:var(--navy);line-height:1.1;">2024 Chevy Traverse</div>
+            <div style="font-size:0.55rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">AWD SUV</div>
           </div>
         </div>
-        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">20 mpg</span>
+        <div style="padding:0.8rem;display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.85rem;">20 mpg</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">19.4 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">19.4 gal</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~309 mi</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~309 mi</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~29.5 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~29.5 gal</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$121</span>
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.95rem;">~$121</span>
           </div>
         </div>
       </div>
 
       <!-- JOURNEY -->
       <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);overflow:hidden;">
-        <div style="background:var(--gold);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;">
-          <span style="font-size:1.4rem;">🚗</span>
+        <div style="background:var(--gold);padding:0.6rem 0.8rem;display:flex;align-items:center;gap:0.4rem;">
+          <span style="font-size:1.1rem;">🚗</span>
           <div>
-            <div style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);line-height:1.1;">2012 Dodge Journey</div>
-            <div style="font-size:0.7rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">FWD SUV</div>
+            <div style="font-family:'Alfa Slab One',serif;font-size:0.75rem;color:var(--navy);line-height:1.1;">2012 Dodge Journey</div>
+            <div style="font-size:0.55rem;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-mid);">FWD SUV</div>
           </div>
         </div>
-        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem;">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.1rem;">22 mpg</span>
+        <div style="padding:0.8rem;display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. MPG</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.85rem;">22 mpg</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">15.8 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Tank Size</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">15.8 gal</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~348 mi</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Range / Tank</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~348 mi</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.5rem;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
-            <span style="font-weight:700;color:#fff;font-size:0.95rem;">~24.7 gal</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.35rem;">
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Total Gallons</span>
+            <span style="font-weight:700;color:#fff;font-size:0.8rem;">~24.7 gal</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
-            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.2rem;">~$131</span>
+            <span style="font-size:0.65rem;color:rgba(255,255,255,0.6);font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;">Est. Fuel Cost</span>
+            <span style="font-family:'Alfa Slab One',serif;color:var(--gold);font-size:0.95rem;">~$131</span>
           </div>
         </div>
       </div>
 
     </div>
+
+    <button class="accordion-toggle">
+        <div style="flex:1">
+          <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;">Gas Stops & Route Details</span>
+        </div>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p style="color:var(--text-mid);margin-bottom:2rem;max-width:580px;line-height:1.65;font-size:0.95rem;">Based on the full route: Pittsburgh → Richmond → Salvo, NC. Total one-way distance: <strong>~590 miles</strong>. Prices based on current local rates: Pittsburgh diesel ~$5.66/gal, regular ~$4.47/gal · Richmond ~$4.20 diesel / $3.80 regular · Coastal NC ~$4.50+ diesel / $4.00+ regular. Includes full tank fill-up at home before departure.</p>
 
     <!-- Gas Stops by Leg -->
     <p class="section-eyebrow" style="margin-bottom:0.4rem;">Gas Stops Per Leg</p>
