@@ -853,7 +853,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" style="display:flex;align-items:center;gap:0.5rem;">OBX '26 <span id="beach-flag" title="Loading beach conditions..." style="font-size:1.1rem;cursor:help;">🏳️</span></div>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:0.5rem;">OBX '26 <span id="beach-flag" title="Loading beach conditions..." style="font-size:1.1rem;cursor:help;">🏳️</span><span id="beach-flag-text" style="font-family:'Oswald',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.6);"></span></div>
   <ul class="nav-links">
     
     
@@ -2021,14 +2021,19 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
       }
       text = text.toLowerCase();
       var flag = document.getElementById('beach-flag');
+      var flagText = document.getElementById('beach-flag-text');
       if(text.indexOf('high risk')!==-1 || text.indexOf('high rip current')!==-1){
         flag.textContent='🔴'; flag.title='High Rip Current Risk — Stay out of the water';
+        flagText.textContent='High Risk'; flagText.style.color='#f44336';
       } else if(text.indexOf('moderate risk')!==-1 || text.indexOf('moderate rip')!==-1){
         flag.textContent='🟡'; flag.title='Moderate Rip Current Risk — Use caution';
+        flagText.textContent='Med Risk'; flagText.style.color='#f5a623';
       } else if(text.indexOf('low risk')!==-1 || text.indexOf('low rip')!==-1){
         flag.textContent='🟢'; flag.title='Low Rip Current Risk — Swim safely';
+        flagText.textContent='Low Risk'; flagText.style.color='#4caf50';
       } else {
         flag.textContent='🟢'; flag.title='Rip Current Risk: Check local conditions';
+        flagText.textContent='Low Risk'; flagText.style.color='#4caf50';
       }
     })
     .catch(function(){
