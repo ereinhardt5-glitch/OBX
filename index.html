@@ -300,6 +300,9 @@
     .day-header.open .chevron { transform:rotate(180deg); }
     .day-body { display:none;padding:1rem 1.25rem;flex-direction:column;gap:0.6rem; }
     .day-body.open { display:flex; }
+    .map-btn { background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:all 0.15s; }
+    .map-btn:hover { background:#f5c842; }
+    .map-btn.active { background:var(--navy);color:var(--gold);border-color:var(--gold); }
 
     /* ─── COUNTDOWN ─── */
     .countdown-bar {
@@ -879,6 +882,7 @@
 })()"><span style="font-size:1.3rem;line-height:1;">⛽</span><span style="font-size:0.72rem;letter-spacing:0.04em;margin-top:2px;">Gas</span></button>
     <button class="sticky-pill" onclick="document.getElementById('weather').scrollIntoView({behavior:'smooth'})"><span style="font-size:1.3rem;line-height:1;">🌤️</span><span style="font-size:0.72rem;letter-spacing:0.04em;margin-top:2px;">Weather</span></button>
     <button class="sticky-pill" onclick="document.getElementById('week').scrollIntoView({behavior:'smooth'})"><span style="font-size:1.3rem;line-height:1;">📅</span><span style="font-size:0.72rem;letter-spacing:0.04em;margin-top:2px;">Week</span></button>
+    <button class="sticky-pill" onclick="document.getElementById('explore').scrollIntoView({behavior:'smooth'})"><span style="font-size:1.3rem;line-height:1;">📍</span><span style="font-size:0.72rem;letter-spacing:0.04em;margin-top:2px;">Map</span></button>
     <button class="sticky-pill" onclick="document.getElementById('webcams').scrollIntoView({behavior:'smooth'})"><span style="font-size:1.3rem;line-height:1;">📷</span><span style="font-size:0.72rem;letter-spacing:0.04em;margin-top:2px;">Cams</span></button>
   </div>
 </div>
@@ -1734,6 +1738,30 @@
 </section>
 
 
+<!-- EXPLORE MAP -->
+<section id="explore" style="background:var(--navy);">
+  <div class="section-inner">
+    <p class="section-eyebrow">Navigate</p>
+    <h2 class="section-title">📍 Explore Locations</h2>
+    <p style="color:rgba(255,255,255,0.6);margin-bottom:1.25rem;font-size:0.9rem;">Tap a location to see it on the map.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;" id="map-buttons">
+      <button class="map-btn active" data-lat="35.7796" data-lng="-75.5284" data-zoom="15" data-label="Beach House">🏠 Beach House</button>
+      <button class="map-btn" data-lat="37.5407" data-lng="-77.4360" data-zoom="14" data-label="Richmond Hotel">🏨 Richmond Hotel</button>
+      <button class="map-btn" data-lat="36.2965" data-lng="-75.9277" data-zoom="15" data-label="Digger's Dungeon">🏎️ Digger's Dungeon</button>
+      <button class="map-btn" data-lat="35.1150" data-lng="-75.9830" data-zoom="14" data-label="Ocracoke">⛴️ Ocracoke</button>
+      <button class="map-btn" data-lat="35.9082" data-lng="-75.6757" data-zoom="15" data-label="Manteo / Aquarium">🐟 Manteo</button>
+      <button class="map-btn" data-lat="35.3530" data-lng="-75.5030" data-zoom="16" data-label="Avon Pier">🍦 Avon Pier</button>
+      <button class="map-btn" data-lat="35.5930" data-lng="-75.4650" data-zoom="16" data-label="Rodanthe Pier">🎣 Rodanthe Pier</button>
+      <button class="map-btn" data-lat="35.5555" data-lng="-75.4805" data-zoom="16" data-label="Olde Towne Smokehouse">🍖 Smokehouse</button>
+    </div>
+    <div style="border-radius:12px;overflow:hidden;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);">
+      <iframe id="explore-map" width="100%" height="400" frameborder="0" scrolling="no" style="display:block;"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-75.5384%2C35.7746%2C-75.5184%2C35.7846&layer=mapnik&marker=35.7796%2C-75.5284"></iframe>
+    </div>
+    <div id="map-label" style="text-align:center;margin-top:0.75rem;font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1rem;">🏠 Beach House</div>
+  </div>
+</section>
+
 <!-- WEBCAMS -->
 <section id="webcams" style="background:var(--cream);">
   <div class="section-inner">
@@ -1919,6 +1947,19 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
       document.getElementById('weather-cards').innerHTML='<div style="text-align:center;padding:1rem;color:var(--text-mid);font-size:0.85rem;grid-column:1/-1;">Unable to load forecast</div>';
     });
 })();
+</script>
+<script>
+document.querySelectorAll('.map-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.map-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var lat=parseFloat(btn.dataset.lat),lng=parseFloat(btn.dataset.lng),zoom=parseInt(btn.dataset.zoom);
+    var d=zoom<=14?0.05:zoom<=15?0.01:0.005;
+    var bbox=(lng-d)+','+(lat-d)+','+(lng+d)+','+(lat+d);
+    document.getElementById('explore-map').src='https://www.openstreetmap.org/export/embed.html?bbox='+bbox+'&layer=mapnik&marker='+lat+'%2C'+lng;
+    document.getElementById('map-label').textContent=btn.textContent;
+  });
+});
 </script>
 </body>
 </html>
