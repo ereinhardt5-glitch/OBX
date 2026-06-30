@@ -1579,6 +1579,27 @@
     </div>
     <p style="color:var(--text-light);font-size:0.7rem;margin-top:0.75rem;text-align:right;">Powered by Open-Meteo</p>
 
+    <!-- Tides & Sun -->
+    <div style="margin-top:2rem;">
+      <h3 style="font-family:'Alfa Slab One',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.75rem;">🌊 Today's Tides &amp; Sun</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);padding:1.25rem;">
+          <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">⛵ Tide Times</div>
+          <div id="tide-list" style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Loading tides...</div>
+          </div>
+          <p style="color:rgba(255,255,255,0.4);font-size:0.65rem;margin-top:0.75rem;">Oregon Inlet, NC station</p>
+        </div>
+        <div style="background:var(--navy);border-radius:12px;border:3px solid var(--gold);box-shadow:5px 5px 0 rgba(13,43,82,0.2);padding:1.25rem;">
+          <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">☀️ Sun Times</div>
+          <div id="sun-list" style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Loading sun times...</div>
+          </div>
+          <p style="color:rgba(255,255,255,0.4);font-size:0.65rem;margin-top:0.75rem;">Rodanthe, NC</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Beach Safety -->
     <div id="beach-safety" style="margin-top:2rem;">
       <h3 style="font-family:'Alfa Slab One',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem;">🚩 Beach Safety</h3>
@@ -2081,6 +2102,77 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
     })
     .catch(function(){
       document.getElementById('weather-cards').innerHTML='<div style="text-align:center;padding:1rem;color:var(--text-mid);font-size:0.85rem;grid-column:1/-1;">Unable to load forecast</div>';
+    });
+})();
+
+// Tide Times - NOAA CO-OPS (Oregon Inlet, NC station 8652587)
+(function(){
+  function fmtTime(s){
+    var d = new Date(s.replace(' ','T'));
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var ampm = h>=12?'PM':'AM';
+    h = h%12; if(h===0) h=12;
+    return h+':'+(m<10?'0':'')+m+' '+ampm;
+  }
+  var today = new Date();
+  var y = today.getFullYear();
+  var m = (today.getMonth()+1);
+  var d = today.getDate();
+  var dateStr = y + (m<10?'0':'') + m + (d<10?'0':'') + d;
+  fetch('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=OBX2026&begin_date='+dateStr+'&end_date='+dateStr+'&datum=MLLW&station=8652587&time_zone=lst_ldt&units=english&interval=hilo&format=json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      var list = document.getElementById('tide-list');
+      if(!data.predictions || !data.predictions.length){
+        list.innerHTML = '<div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Tide data unavailable</div>';
+        return;
+      }
+      list.innerHTML = '';
+      data.predictions.forEach(function(p){
+        var isHigh = p.type === 'H';
+        var row = document.createElement('div');
+        row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-radius:8px;padding:0.5rem 0.75rem;';
+        row.innerHTML = '<span style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.8rem;color:'+(isHigh?'var(--gold)':'#8ecae6')+';">'+(isHigh?'▲ HIGH':'▼ LOW')+'</span>'
+          +'<span style="color:white;font-size:0.85rem;">'+fmtTime(p.t)+'</span>';
+        list.appendChild(row);
+      });
+    })
+    .catch(function(){
+      document.getElementById('tide-list').innerHTML = '<div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Unable to load tide data</div>';
+    });
+})();
+
+// Sun Times - sunrise-sunset.org
+(function(){
+  function fmtTime(iso){
+    var d = new Date(iso);
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var ampm = h>=12?'PM':'AM';
+    h = h%12; if(h===0) h=12;
+    return h+':'+(m<10?'0':'')+m+' '+ampm;
+  }
+  fetch('https://api.sunrise-sunset.org/json?lat=35.59&lng=-75.47&formatted=0')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      var list = document.getElementById('sun-list');
+      if(!data.results){
+        list.innerHTML = '<div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Sun data unavailable</div>';
+        return;
+      }
+      var rise = fmtTime(data.results.sunrise);
+      var set = fmtTime(data.results.sunset);
+      list.innerHTML = ''
+        + '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-radius:8px;padding:0.5rem 0.75rem;">'
+        + '<span style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.8rem;color:var(--gold);">🌅 SUNRISE</span>'
+        + '<span style="color:white;font-size:0.85rem;">'+rise+'</span></div>'
+        + '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-radius:8px;padding:0.5rem 0.75rem;">'
+        + '<span style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.8rem;color:#8ecae6;">🌇 SUNSET</span>'
+        + '<span style="color:white;font-size:0.85rem;">'+set+'</span></div>';
+    })
+    .catch(function(){
+      document.getElementById('sun-list').innerHTML = '<div style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Unable to load sun data</div>';
     });
 })();
 
