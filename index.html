@@ -847,8 +847,8 @@
 
   
     @media(max-width:640px){
-      #weather-cards, #uv-chart { grid-template-columns: repeat(5, 1fr) !important; gap: 0.4rem !important; }
-      #weather-cards > div, #uv-chart > div { padding: 0.6rem 0.3rem !important; }
+      #weather-cards, #uv-chart { grid-template-columns: repeat(5, minmax(0,1fr)) !important; gap: 0.4rem !important; }
+      #weather-cards > div, #uv-chart > div { padding: 0.6rem 0.3rem !important; min-width: 0 !important; }
     }
   </style>
 </head>
@@ -1567,13 +1567,13 @@
     <p class="section-eyebrow">OBX Weather</p>
     <h2 class="section-title">⛅ 5-Day Forecast</h2>
     <p style="color:var(--text-mid);margin-bottom:1rem;font-size:0.85rem;">Rodanthe, NC · Updates daily &nbsp;·&nbsp; Currently: <span id="current-temp" style="font-family:'Alfa Slab One',serif;font-size:1rem;color:var(--navy);">--</span></p>
-    <div id="weather-cards" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;">
+    <div id="weather-cards" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0.75rem;">
       <div style="text-align:center;padding:1.5rem;color:var(--text-mid);font-size:0.85rem;grid-column:1/-1;">Loading forecast...</div>
     </div>
     <!-- UV Index -->
     <div style="margin-top:1.5rem;">
       <h3 style="font-family:'Alfa Slab One',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.75rem;">☀️ 5-Day UV Index</h3>
-      <div id="uv-chart" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;">
+      <div id="uv-chart" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0.75rem;">
         <div style="text-align:center;padding:1rem;color:var(--text-mid);font-size:0.85rem;grid-column:1/-1;">Loading UV data...</div>
       </div>
     </div>
@@ -2042,7 +2042,7 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
         card.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem 0.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;';
         card.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;white-space:nowrap;">'+dayName+' '+month+'/'+dayNum+'</div>'
           +'<div style="font-size:2.2rem;line-height:1;height:2.4rem;display:flex;align-items:center;justify-content:center;">'+icon+'</div>'
-          +'<div style="font-size:0.72rem;color:var(--text-mid);margin:0.25rem 0;white-space:nowrap;">'+label+'</div>'
+          +'<div style="font-size:0.72rem;color:var(--text-mid);margin:0.25rem 0;">'+label+'</div>'
           +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.3rem;color:var(--navy);">'+(i===0?currentTemp:hi)+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);margin-top:0.2rem;">Hi '+hi+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);">Lo '+lo+'\xb0</div>'
