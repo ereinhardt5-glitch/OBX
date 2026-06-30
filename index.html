@@ -2041,7 +2041,7 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
         var card = document.createElement('div');
         card.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem 0.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;';
         card.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;white-space:nowrap;">'+dayName+' '+month+'/'+dayNum+'</div>'
-          +'<div style="font-size:2.2rem;line-height:1.2;">'+icon+'</div>'
+          +'<div style="font-size:2.2rem;line-height:1;height:2.4rem;display:flex;align-items:center;justify-content:center;">'+icon+'</div>'
           +'<div style="font-size:0.72rem;color:var(--text-mid);margin:0.25rem 0;white-space:nowrap;">'+label+'</div>'
           +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.3rem;color:var(--navy);">'+(i===0?currentTemp:hi)+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);margin-top:0.2rem;">Hi '+hi+'\xb0</div>'
