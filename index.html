@@ -292,7 +292,7 @@
       border-color: var(--gold);
     }
     #stays, #roadtrip, #gas, #weather, #week, #explore, #webcams, #beach-safety {
-      scroll-margin-top: 140px;
+      scroll-margin-top: 90px;
     }
 
 
@@ -2039,14 +2039,14 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
         var dayNum = date.getDate();
 
         var card = document.createElement('div');
-        card.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem;text-align:center;';
-        card.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;">'+dayName+' '+month+'/'+dayNum+'</div>'
+        card.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem 0.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;';
+        card.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;white-space:nowrap;">'+dayName+' '+month+'/'+dayNum+'</div>'
           +'<div style="font-size:2.2rem;line-height:1.2;">'+icon+'</div>'
-          +'<div style="font-size:0.75rem;color:var(--text-mid);margin:0.25rem 0;">'+label+'</div>'
+          +'<div style="font-size:0.72rem;color:var(--text-mid);margin:0.25rem 0;white-space:nowrap;">'+label+'</div>'
           +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.3rem;color:var(--navy);">'+(i===0?currentTemp:hi)+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);margin-top:0.2rem;">Hi '+hi+'\xb0</div>'
           +'<div style="font-size:0.8rem;color:var(--text-light);">Lo '+lo+'\xb0</div>'
-          +(rain>0?'<div style="font-size:0.7rem;color:var(--navy-light);margin-top:0.25rem;">💧 '+rain+'%</div>':'');
+          +'<div style="font-size:0.7rem;color:var(--navy-light);margin-top:0.25rem;visibility:'+(rain>0?'visible':'hidden')+';">💧 '+(rain||0)+'%</div>';
         container.appendChild(card);
       }
       // UV Index Chart
@@ -2066,14 +2066,14 @@ document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
         else if(uvVal<=10){uvColor='#f44336';uvLabel='Very High';}
         else{uvColor='#9c27b0';uvLabel='Extreme';}
         var uvCard = document.createElement('div');
-        uvCard.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem;text-align:center;';
-        uvCard.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">'+uvDay+' '+uvMonth+'/'+uvNum+'</div>'
+        uvCard.style.cssText = 'background:white;border-radius:12px;border:2.5px solid var(--navy);box-shadow:4px 4px 0 rgba(13,43,82,0.12);padding:1rem 0.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;';
+        uvCard.innerHTML = '<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;white-space:nowrap;">'+uvDay+' '+uvMonth+'/'+uvNum+'</div>'
           +'<div style="font-family:\'Alfa Slab One\',serif;font-size:1.5rem;color:'+uvColor+';">'+uvVal.toFixed(1)+'</div>'
-          +'<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:'+uvColor+';margin-bottom:0.5rem;">'+uvLabel+'</div>'
-          +'<div style="background:#e0e0e0;border-radius:6px;height:12px;overflow:hidden;margin-top:0.25rem;">'
+          +'<div style="font-family:\'Oswald\',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:'+uvColor+';margin-bottom:0.5rem;white-space:nowrap;">'+uvLabel+'</div>'
+          +'<div style="background:#e0e0e0;border-radius:6px;height:12px;overflow:hidden;margin-top:0.25rem;width:100%;">'
           +'<div style="height:100%;width:'+uvPct+'%;background:linear-gradient(to right,#4caf50,#f5a623,#ff9800,#f44336);border-radius:6px;transition:width 0.5s;"></div>'
           +'</div>'
-          +'<div style="display:flex;justify-content:space-between;font-size:0.5rem;color:var(--text-light);margin-top:0.2rem;padding:0 0.1rem;"><span>Low</span><span>Extreme</span></div>';
+          +'<div style="display:flex;justify-content:space-between;font-size:0.5rem;color:var(--text-light);margin-top:0.2rem;padding:0 0.1rem;width:100%;"><span>Low</span><span>Extreme</span></div>';
         uvChart.appendChild(uvCard);
       }
     })
