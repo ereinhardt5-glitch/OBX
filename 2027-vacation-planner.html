@@ -1,0 +1,381 @@
+<title>2027 Vacation Planner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --ground: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e3e8e6;
+    --ink: #142a2e;
+    --ink-soft: #4a5c5f;
+    --line: #c7d0ce;
+    --accent: #c07a1f;
+    --accent-soft: #f3e2c4;
+    --alert: #b3402e;
+    --alert-soft: #f6dcd6;
+    --ok: #3f7d5c;
+    --ok-soft: #dceadf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #10191b;
+      --surface: #182427;
+      --surface-2: #1f2d30;
+      --ink: #e9efee;
+      --ink-soft: #a7b7b7;
+      --line: #33454a;
+      --accent: #e0a64a;
+      --accent-soft: #3a2f1b;
+      --alert: #e0776a;
+      --alert-soft: #3a201d;
+      --ok: #6bbd93;
+      --ok-soft: #1c3327;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #10191b;
+    --surface: #182427;
+    --surface-2: #1f2d30;
+    --ink: #e9efee;
+    --ink-soft: #a7b7b7;
+    --line: #33454a;
+    --accent: #e0a64a;
+    --accent-soft: #3a2f1b;
+    --alert: #e0776a;
+    --alert-soft: #3a201d;
+    --ok: #6bbd93;
+    --ok-soft: #1c3327;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .masthead h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; }
+  .masthead .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .masthead .stamp {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .alert-banner {
+    background: var(--alert-soft);
+    border: 1px solid var(--alert);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .alert-banner .mark {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--alert);
+    border: 1px solid var(--alert);
+    border-radius: 3px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .alert-banner p { margin: 0; font-size: 15px; }
+  .alert-banner strong { color: var(--alert); }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .stat-card .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .stat-card .value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .stat-card .value small { font-size: 14px; font-weight: 400; color: var(--ink-soft); }
+  .stat-card .sub { font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; }
+
+  section.trip { margin-bottom: 40px; }
+  .trip-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .trip-head h2 { font-size: 21px; font-weight: 600; }
+  .trip-head .dates {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .trip-note { color: var(--ink-soft); font-size: 14px; margin: 0 0 14px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--surface); }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+  .row-flagged td { background: var(--alert-soft); }
+  .pill {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .pill.conflict { background: var(--alert-soft); color: var(--alert); }
+  .pill.ok { background: var(--ok-soft); color: var(--ok); }
+
+  .scenario-wrap { margin-top: 44px; }
+  .scenario-wrap h2 { font-size: 21px; font-weight: 600; margin-bottom: 6px; }
+  .scenario-wrap > p { color: var(--ink-soft); font-size: 14px; max-width: 62ch; margin: 0 0 16px; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  footer p { margin: 0 0 8px; max-width: 68ch; }
+
+  @media (max-width: 640px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .masthead { flex-direction: column; align-items: flex-start; }
+    .masthead .stamp { text-align: left; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="masthead">
+    <div>
+      <div class="eyebrow">Family trip planning</div>
+      <h1>2027 Vacation Cheat Sheet</h1>
+    </div>
+    <div class="stamp">4 trips under review<br>PTO estimates assume Mon&ndash;Fri work week</div>
+  </div>
+
+  <div class="alert-banner">
+    <span class="mark">Conflict</span>
+    <p><strong>Myrtle Beach (Jun 5&ndash;12) and Disney Cruise Option A (Jun 5&ndash;12) are the exact same week.</strong>
+      Both depart and return on a Saturday. Pick one for that week &mdash; they can't be combined unless the cruise
+      is moved to Option B, C, or D below.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="label">Skip the cruise</div>
+      <div class="value">11&ndash;12 <small>PTO days</small></div>
+      <div class="sub">3 trips &middot; 18 nights away &middot; Myrtle Beach keeps the June week</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Cruise instead of Myrtle Beach</div>
+      <div class="value">11&ndash;12 <small>PTO days</small></div>
+      <div class="sub">3 trips &middot; 18 nights away &middot; Option A swaps in for the same week</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Both, different weeks</div>
+      <div class="value">16&ndash;17 <small>PTO days</small></div>
+      <div class="sub">4 trips &middot; 25 nights away &middot; cruise moves to Option B, C, or D</div>
+    </div>
+  </div>
+
+  <section class="trip">
+    <div class="trip-head">
+      <h2>Coca-Cola 600 &middot; Memorial Day</h2>
+      <span class="dates">Thu, May 27 &rarr; Mon, May 31, 2027</span>
+    </div>
+    <p class="trip-note">Race is traditionally the Sunday of Memorial Day weekend &mdash; May 30, 2027 by that pattern,
+      but NASCAR won't publish the official 2027 schedule until fall 2026, so treat the exact race date as tentative.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leave</th><th>Return</th><th class="num">Nights</th><th class="num">PTO days</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Thu May 27</td>
+            <td>Mon May 31 (Memorial Day)</td>
+            <td class="num">4</td>
+            <td class="num">1&ndash;2</td>
+            <td>Only Fri May 28 is a definite workday off; Thu is optional depending on departure time; Mon is a paid holiday.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="trip">
+    <div class="trip-head">
+      <h2>Disney Cruise &mdash; Disney Treasure, 7 nights</h2>
+      <span class="pill">4 options to compare</span>
+    </div>
+    <p class="trip-note">All four candidate sailings run Saturday to Saturday, so every option costs the same 5 PTO days &mdash; the only variable is which week, and whether it collides with Myrtle Beach.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Option</th><th>Depart</th><th>Return</th><th class="num">Nights</th><th class="num">PTO days</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="row-flagged">
+            <td>A</td>
+            <td>Sat, Jun 5</td>
+            <td>Sat, Jun 12</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td><span class="pill conflict">Same week as Myrtle Beach</span></td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>Sat, Jun 12</td>
+            <td>Sat, Jun 19</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td><span class="pill ok">Open week</span></td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>Sat, Jun 19</td>
+            <td>Sat, Jun 26</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td><span class="pill ok">Open week</span></td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>Sat, Jun 26</td>
+            <td>Sat, Jul 3</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td><span class="pill ok">Open week &middot; extends into July 4th weekend</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="trip">
+    <div class="trip-head">
+      <h2>Myrtle Beach</h2>
+      <span class="dates">Sat, Jun 5 &rarr; Sat, Jun 12, 2027</span>
+    </div>
+    <p class="trip-note">Same calendar week as Cruise Option A &mdash; see conflict note above.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leave</th><th>Return</th><th class="num">Nights</th><th class="num">PTO days</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="row-flagged">
+            <td>Sat Jun 5</td>
+            <td>Sat Jun 12</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td>Mon Jun 7 &ndash; Fri Jun 11 are the workdays needed off.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="trip">
+    <div class="trip-head">
+      <h2>Disney Halloween &mdash; Fort Wilderness</h2>
+      <span class="dates">Sat, Oct 9 &rarr; Sat, Oct 16, 2027</span>
+    </div>
+    <p class="trip-note">Clear of every other trip on this sheet &mdash; no scheduling conflicts.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leave</th><th>Return</th><th class="num">Nights</th><th class="num">PTO days</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Sat Oct 9</td>
+            <td>Sat Oct 16</td>
+            <td class="num">7</td>
+            <td class="num">5</td>
+            <td>Mon Oct 11 &ndash; Fri Oct 15 are the workdays needed off.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="scenario-wrap">
+    <h2>Full-year totals by scenario</h2>
+    <p>Assumes the Coca-Cola 600 trip costs 2 PTO days (the conservative case) and every 7-night trip costs 5.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th class="num">Trips</th><th class="num">Nights away</th><th class="num">PTO days</th></tr></thead>
+        <tbody>
+          <tr><td>Memorial Day + Myrtle Beach + Halloween (no cruise)</td><td class="num">3</td><td class="num">18</td><td class="num">12</td></tr>
+          <tr><td>Memorial Day + Cruise Option A (replaces Myrtle Beach) + Halloween</td><td class="num">3</td><td class="num">18</td><td class="num">12</td></tr>
+          <tr><td>Memorial Day + Myrtle Beach + Cruise (Option B, C, or D) + Halloween</td><td class="num">4</td><td class="num">25</td><td class="num">17</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <p>Dates computed for the 2027 calendar. Memorial Day 2027 falls on Mon, May 31, so the "Thursday before" is May 27.
+      PTO figures count Mon&ndash;Fri workdays only inside each trip window and don't account for company-specific
+      floating holidays beyond Memorial Day itself.</p>
+    <p>Coca-Cola 600 date is projected from the historical Memorial Day&ndash;weekend pattern, not an official NASCAR
+      announcement &mdash; recheck once the 2027 schedule is released.</p>
+  </footer>
+
+</div>
